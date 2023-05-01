@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.body {
+  font-family: "Arial", "Helvetica", Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  margin: 0 auto;
+  padding: 50px;
+}
+/* =============================== text-area  =========================================================== */
+.section_wrapper {
+  max-width: 1280px;
+  max-height: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+.section_name {
+  font-size: calc(1.5rem + 1.2vw);
+  text-align: center;
+}
+.section_text {
+  width: 760px;
+  min-height: 300px;
+  border: none;
+  background: #ffffff;
+  padding: 10px;
+}
+/* =============================== text-area =========================================================== */
+/* =============================== key-board =========================================================== */
+.keyboard_wrapper {
+  max-width: 760px;
+  padding: 10px;
+  background-color: rgb(200, 200, 200);
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 10px 10px  rgb(160, 160, 160);
+  
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+
+}
+.line {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  /* flex-wrap: wrap; */
+  gap: 10px;
+  position: relative;
+}
+.key {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  border-radius: 5px;
+  height: 40px;
+  cursor: pointer;
+  background-color: rgb(34, 34, 34);
+  transition: all ease-in-out 0.2s;
+  position: relative;
+}
+.key:hover {
+  background-color: rgba(125, 125, 125, 0.5);
+  transition: all ease-in-out 0.2s;
+  box-shadow: inset 0px 0px 1px 1px  rgb(61, 61, 61);
+}
+.key:active {
+  /* background-color: #3d3d3d; */
+  box-shadow: inset 0px 0px 5px 2px  rgb(61, 61, 61);
+}
+.delete, 
+.tab {
+  width: 80px;
+  font-size: calc(1rem + -0.5vw);
+}
+.caps, 
+.return {
+  width: 100px;
+  font-size: calc(1rem + -0.5vw);
+}
+.box{
+  position: relative;
+  z-index: 0;
+}
+.diode {
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  /* background-color: chartreuse; */
+  position: absolute;
+  z-index: 1;
+  top: 5px;
+  left: 5px;
+}
+.diode-active {
+  background-color: chartreuse;
+}
+.l_shift ,
+.r_shift {
+  width: 120px;
+  font-size: calc(0.6rem);
+}
+.blind_box {
+  display: flex;
+  flex-direction: column;
+}
+#MetaLeft,
+#MetaRight,
+#ControlLeft,
+#AltLeft,
+#AltRight {
+  width: 60px;
+  font-size: calc(0.6rem);
+}
+#Space {
+  width: 343px;
+}
+.arrow {
+  font-size: 10px;
+  height: 20px;
+}
+.u {
+  border-radius: 5px 5px 0 0;
+}
+.d {
+  border-radius: 0 0 5px 5px;
+}
+.active {
+  background-color: rgba(125, 125, 125, 0.5);
+  box-shadow: inset 0px 0px 5px 2px  rgb(61, 61, 61);
+
+}
+/* =============================== key-board =========================================================== */
+/* =============================== description =========================================================== */
+.description_wrapper {
+  width: 760px;
+  display: flex;
+  justify-content: space-between;
+}
+.description,
+.ver {
+  color: rgb(187, 187, 187);
+}
+/* =============================== description =========================================================== */
+
