@@ -56,7 +56,10 @@ keyboardWrapper.innerHTML = `
     <div class="key symb mark"      id="Backslash">\\</div>
   </div>
   <div class="line">
-    <div class="key caps"           id="CapsLock">caps lock</div>
+    <div class = "box">
+    <div class="diode"></div>
+    <div class="key caps"           id="CapsLock"> caps lock</div>
+    </div>
     <div class="key symb lett lang" id="KeyA">a</div>
     <div class="key symb lett lang" id="KeyS">s</div>
     <div class="key symb lett lang" id="KeyD">d</div>
@@ -96,6 +99,7 @@ keyboardWrapper.innerHTML = `
     <div class="blind_box">
       <div class="key symb arrow u"   id="ArrowUp">▲</div>
       <div class="key symb arrow d" id="ArrowDown">▼</div>
+      
     </div>
     <div class="  key symb arrow r" id="ArrowRight">▶</div>`;
 // ========================================================= html =================================================================
@@ -118,7 +122,6 @@ const toushSymbols  = document.querySelectorAll('.symb');
 // ========================================================= symbol =================================================================
 // ========================================================= active + =================================================================
 document.addEventListener('keydown', (event) => {
-  console.log(event);
   keys.forEach(el => {
      if (el.id == event.code) {
         el.classList.add('active')
@@ -266,3 +269,107 @@ function getCursor() {
    }).join("") + "|";
 }
 // ========================================================= cursor =================================================================
+// ========================================================= shift =================================================================
+document.addEventListener('keydown', (event) => {
+  if (event.key == 'Shift') {
+     if (capsLock === 0) {
+        letters.forEach(el => {
+          el.innerHTML = el.innerHTML.toUpperCase();
+        })  
+     } else {
+        letters.forEach(el => {
+          el.innerHTML = el.innerHTML.toLowerCase();
+        })
+     }
+     if (localStorage.lang === 'ru') {
+        for (let i = 0; i < symbols.length; i++){
+           if (!dontTouchSymbols.includes(symbolsArr[i])) {
+             symbols[i].innerHTML = symbolsArrShift[i];
+           } 
+        }
+     } else {
+        for (let i = 0; i < symbols.length; i++){
+              symbols[i].innerHTML = symbolsArrShift[i]  
+        }
+     }
+  }
+})
+document.addEventListener('keyup', (event) => {
+  if (event.key == 'Shift') {
+     if (capsLock === 1) {
+        letters.forEach(el => {
+           el.innerHTML = el.innerHTML.toUpperCase()
+           
+        })  
+     } else {
+        letters.forEach(el => {
+           el.innerHTML = el.innerHTML.toLowerCase();
+          
+        })
+     }
+     if (localStorage.lang === 'ru') {
+        for (let i = 0; i < symbols.length; i++){
+           if (!dontTouchSymbols.includes(symbolsArr[i])) {
+              symbols[i].innerHTML = symbolsArr[i] 
+           }
+        }
+     } else {
+        for (let i = 0; i < symbols.length; i++){
+           symbols[i].innerHTML = symbolsArr[i]
+        }
+     }
+  }
+})
+document.addEventListener('mousedown', (event) => {
+  if (event.target.id == 'ShiftRight' || event.target.id == 'ShiftLeft') {
+
+     if (capsLock === 0) {
+        letters.forEach(el => {
+           el.innerHTML = el.innerHTML.toUpperCase()
+           
+        })  
+     } else {
+        letters.forEach(el => {
+           el.innerHTML = el.innerHTML.toLowerCase();
+        })
+     }
+     if (localStorage.lang === 'ru') {
+        for (let i = 0; i < symbols.length; i++){
+           if (!dontTouchSymbols.includes(symbolsArr[i])) {
+              symbols[i].innerHTML = symbolsArrShift[i]  
+           } 
+        }
+     } else {
+        for (let i = 0; i < symbols.length; i++){
+              symbols[i].innerHTML = symbolsArrShift[i]  
+        }
+     }
+  }
+})
+document.addEventListener('mouseup', (event) => {
+  if (event.target.id == 'ShiftRight' || event.target.id == 'ShiftLeft') {
+     if (capsLock === 1) {
+        letters.forEach(el => {
+           el.innerHTML = el.innerHTML.toUpperCase()
+           
+        })  
+     } else {
+        letters.forEach(el => {
+           el.innerHTML = el.innerHTML.toLowerCase();
+          
+        })
+     }
+     if (localStorage.lang === 'ru') {
+        for (let i = 0; i < symbols.length; i++){
+           if (!dontTouchSymbols.includes(symbolsArr[i])) {
+              symbols[i].innerHTML = symbolsArr[i] 
+           }
+        }
+     } else {
+        for (let i = 0; i < symbols.length; i++){
+           symbols[i].innerHTML = symbolsArr[i]
+        }
+     }
+  }
+})
+// ========================================================= shift =================================================================
