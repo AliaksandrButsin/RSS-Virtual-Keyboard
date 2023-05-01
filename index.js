@@ -23,77 +23,93 @@ section.append(keyboardWrapper);
 
 keyboardWrapper.innerHTML = `
 <div class="line">
-        <div class="key">\</div>
-        <div class="key">1</div>
-        <div class="key">2</div>
-        <div class="key">3</div>
-        <div class="key">4</div>
-        <div class="key">5</div>
-        <div class="key">6</div>
-        <div class="key">7</div>
-        <div class="key">8</div>
-        <div class="key">9</div>
-        <div class="key">0</div>
-        <div class="key">-</div>
-        <div class="key">=</div>
-        <div class="key delete">delete</div>
-      </div>
-      <div class="line">
-        <div class="key tab">tab</div>
-        <div class="key">q</div>
-        <div class="key">w</div>
-        <div class="key">e</div>
-        <div class="key">r</div>
-        <div class="key">t</div>
-        <div class="key">y</div>
-        <div class="key">u</div>
-        <div class="key">i</div>
-        <div class="key">o</div>
-        <div class="key">p</div>
-        <div class="key">[</div>
-        <div class="key">]</div>
-        <div class="key">\</div>
-      </div>
-      <div class="line">
-        <div class="key caps">caps lock</div>
-        <div class="key">a</div>
-        <div class="key">s</div>
-        <div class="key">d</div>
-        <div class="key">f</div>
-        <div class="key">g</div>
-        <div class="key">h</div>
-        <div class="key">j</div>
-        <div class="key">k</div>
-        <div class="key">l</div>
-        <div class="key">;</div>
-        <div class="key">'</div>
-        <div class="key return">return</div>
-      </div>
-      <div class="line">
-        <div class="key l_shift">shift</div>
-        <div class="key">z</div>
-        <div class="key">x</div>
-        <div class="key">c</div>
-        <div class="key">v</div>
-        <div class="key">b</div>
-        <div class="key">n</div>
-        <div class="key">m</div>
-        <div class="key">,</div>
-        <div class="key">.</div>
-        <div class="key">/</div>
-        <div class="key r_shift">shift</div>
-      </div>
-      <div class="line">
-        <div class="key">cont</div>
-        <div class="key">opti</div>
-        <div class="key l_comm">comm</div>
-        <div class="key space"></div>
-        <div class="key r_comm">comm</div>
-        <div class="key">opti</div>
-        <div class="key arrow">◀</div>
-        <div class="blind_box">
-          <div class="key arrow u">▲</div>
-          <div class="key arrow d">▼</div>
-        </div>
-        <div class="key arrow">▶</div>
-      </div>`;
+    <div class="key symb mark lang" >\`</div>
+    <div class="key symb mark"      >1</div>
+    <div class="key symb mark"      >2</div>
+    <div class="key symb mark"      >3</div>
+    <div class="key symb mark"      >4</div>
+    <div class="key symb mark"      >5</div>
+    <div class="key symb mark"      >6</div>
+    <div class="key symb mark"      >7</div>
+    <div class="key symb mark"      >8</div>
+    <div class="key symb mark"      >9</div>
+    <div class="key symb mark"      >0</div>
+    <div class="key symb mark"      >-</div>
+    <div class="key symb mark"      >=</div>
+    <div class="key delete"         >delete</div>
+  </div>
+  <div class="line">
+    <div class="key tab"            >tab</div>
+    <div class="key symb lett lang" >q</div>
+    <div class="key symb lett lang" >w</div>
+    <div class="key symb lett lang" >e</div>
+    <div class="key symb lett lang" >r</div>
+    <div class="key symb lett lang" >t</div>
+    <div class="key symb lett lang" >y</div>
+    <div class="key symb lett lang" >u</div>
+    <div class="key symb lett lang" >i</div>
+    <div class="key symb lett lang" >o</div>
+    <div class="key symb lett lang" >p</div>
+    <div class="key symb mark lang" >[</div>
+    <div class="key symb mark lang" >]</div>
+    <div class="key symb mark"      >\\</div>
+  </div>
+  <div class="line">
+    <div class="key caps"           >caps lock</div>
+    <div class="key symb lett lang" >a</div>
+    <div class="key symb lett lang" >s</div>
+    <div class="key symb lett lang" >d</div>
+    <div class="key symb lett lang" >f</div>
+    <div class="key symb lett lang" >g</div>
+    <div class="key symb lett lang" >h</div>
+    <div class="key symb lett lang" >j</div>
+    <div class="key symb lett lang" >k</div>
+    <div class="key symb lett lang" >l</div>
+    <div class="key symb mark lang" >;</div>
+    <div class="key symb mark lang" >'</div>
+    <div class="key return"         >return</div>
+  </div>
+  <div class="line">
+    <div class="key l_shift"        >shift</div>
+    <div class="key symb lett lang" >z</div>
+    <div class="key symb lett lang" >x</div>
+    <div class="key symb lett lang" >c</div>
+    <div class="key symb lett lang" >v</div>
+    <div class="key symb lett lang" >b</div>
+    <div class="key symb lett lang" >n</div>
+    <div class="key symb lett lang" >m</div>
+    <div class="key symb mark lang" >,</div>
+    <div class="key symb mark lang" >.</div>
+    <div class="key symb mark lang" >/</div>
+    <div class="key r_shift"        >shift</div>
+  </div>
+  <div class="line">
+    <div class="key" >cont</div>
+    <div class="key" >l_opti</div>
+    <div class="key" >l_comm</div>
+    <div class="key space" ></div>
+    <div class="key" >r_comm</div>
+    <div class="key" >r_opti</div>
+
+    <div class="  key symb arrow l">◀</div>
+    <div class="blind_box">
+      <div class="key symb arrow u">▲</div>
+      <div class="key symb arrow d">▼</div>
+    </div>
+    <div class="  key symb arrow r">▶</div>`;
+
+    const keys = document.querySelectorAll('.key');
+    const textArea = document.querySelector('.section_text');
+    let capsLock = 0;
+    const symbolsArrShift   = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', ':', '"', '<', '>', '?'];
+    const symbolsArr        = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', '\'', '/', ',', '.'];
+    const symbolsEng        = ['`', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '/', ',', '.'];
+    const symbolsRus        = ['ё', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.'];
+    const dontTouchSymbols  = ['`', '[', ']', ';', '\'', ',', '/', 'ё', 'х', 'ъ', 'ж', 'э', 'б', 'ю'];
+    const allKeyEn          = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'Shift', 'Ctrl','Alt','Com','','Com','Alt', '◀', '▲', '▼', '▶'];
+    const allKeyRus         = ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\', 'CapsLock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'Enter', 'Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.', 'Shift', 'Ctrl','Alt','Com','','Com','Alt', '◀', '▲', '▼', '▶'];
+    
+    const symbols       = document.querySelectorAll('.mark');
+    const langSymbols   = document.querySelectorAll('.lang');
+    const letters       = document.querySelectorAll('.lett');
+    const toushSymbols  = document.querySelectorAll('.symb');
