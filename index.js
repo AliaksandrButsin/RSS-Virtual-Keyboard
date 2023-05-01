@@ -199,3 +199,70 @@ function getLangKeys() {
   }
 }
 // ========================================================= change lang =================================================================
+// ========================================================= textarea - button =================================================================
+document.addEventListener('keydown', (event) => {
+  toushSymbols.forEach(el => {
+     if (el.id == event.code) {
+        textArea.innerHTML += el.innerHTML
+        getCursor()
+     }
+  })
+  if (event.code === 'Enter') {
+     textArea.innerHTML = textArea.value + "\n";
+     getCursor()
+  }
+  if (event.code === 'Space') {
+     textArea.innerHTML += " ";
+     getCursor()
+     event.preventDefault();
+  }
+  if (event.code === 'Backspace') {
+     textArea.innerHTML = textArea.innerHTML.slice(0, -1);
+  }
+  if (event.code === 'Tab') {
+     textArea.innerHTML = textArea.value + "    ";
+     getCursor()
+     event.preventDefault();
+  }
+})
+// ========================================================= textarea - button =================================================================
+// ========================================================= textarea - mouse =================================================================
+document.addEventListener('click', (event) => {
+  keys.forEach(elem => {
+     if (event.target == elem) {
+        toushSymbols.forEach(el => {
+           if (el.id == elem.id) {
+              textArea.innerHTML += el.innerHTML
+              getCursor()
+           }
+        })
+        if (elem.id === 'Enter') {
+           textArea.innerHTML = textArea.value + "\n";
+           getCursor()
+        }
+        if (elem.id === 'Space') {
+           textArea.innerHTML += " ";
+           getCursor()
+           event.preventDefault();
+        }
+        if (elem.id === 'Backspace') {
+              textArea.innerHTML = textArea.innerHTML.slice(0, -1)
+        }
+        if (elem.id === 'Tab') {
+           textArea.innerHTML += "    "
+           getCursor()
+           event.preventDefault();
+        }
+     }
+  })
+})
+// ========================================================= textarea - mouse =================================================================
+// ========================================================= cursor =================================================================
+function getCursor() {
+   return textArea.innerHTML = textArea.innerHTML.split('').map(el => {
+      if (el !== '|') {
+         return el
+      }
+   }).join("") + "|";
+}
+// ========================================================= cursor =================================================================
