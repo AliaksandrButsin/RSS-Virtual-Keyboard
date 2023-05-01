@@ -151,7 +151,7 @@ const getStartedPage = () => {
 }
 getStartedPage()
 // ========================================================= chek lang =================================================================
-// ========================================================= change lang ===============================================================
+// ========================================================= change-lang ===============================================================
 let ctrlAcrive = 0;
 let alrActive = 0;
 document.addEventListener('keydown', (event) => {
@@ -201,8 +201,8 @@ function getLangKeys() {
      }
   }
 }
-// ========================================================= change lang =================================================================
-// ========================================================= textarea - button =================================================================
+// ========================================================= change-lang =================================================================
+// ========================================================= textarea-button =================================================================
 document.addEventListener('keydown', (event) => {
   toushSymbols.forEach(el => {
      if (el.id == event.code) {
@@ -228,8 +228,8 @@ document.addEventListener('keydown', (event) => {
      event.preventDefault();
   }
 })
-// ========================================================= textarea - button =================================================================
-// ========================================================= textarea - mouse =================================================================
+// ========================================================= textarea-button =================================================================
+// ========================================================= textarea-mouse =================================================================
 document.addEventListener('click', (event) => {
   keys.forEach(elem => {
      if (event.target == elem) {
@@ -259,7 +259,7 @@ document.addEventListener('click', (event) => {
      }
   })
 })
-// ========================================================= textarea - mouse =================================================================
+// ========================================================= textarea-mouse =================================================================
 // ========================================================= cursor =================================================================
 function getCursor() {
    return textArea.innerHTML = textArea.innerHTML.split('').map(el => {
@@ -373,7 +373,7 @@ document.addEventListener('mouseup', (event) => {
   }
 })
 // ========================================================= shift =================================================================
-// ========================================================= caps lock =================================================================
+// ========================================================= caps-lock =================================================================
 document.addEventListener('keydown', (event) => {
   if (event.key == 'CapsLock') {
     capsLock = 1;
@@ -416,10 +416,74 @@ document.addEventListener('click', (event) => {
      kapsLockMouse === 0 ? kapsLockMouse = 1 : kapsLockMouse = 0;
   }
 })
-// ========================================================= caps lock =================================================================
+// ========================================================= caps-lock =================================================================
 // ========================================================= green-button =================================================================
 function activeDiode(capsLock) {
   let diode = document.querySelector('.diode')
   capsLock === 1 ? diode.classList.add('diode-active'): diode.classList.remove('diode-active')
 }
 // ========================================================= green-button =================================================================
+// ========================================================= special-buttons =================================================================
+document.addEventListener('keydown', (event) => {
+  if (event.key == 'Shift' && localStorage.lang == 'ru' && capsLock == 0) { 
+     symbols[0].innerHTML = symbols[0].innerHTML.toUpperCase()
+     symbols[13].innerHTML = symbols[13].innerHTML.toUpperCase()
+     symbols[14].innerHTML = symbols[14].innerHTML.toUpperCase()
+     symbols[16].innerHTML = symbols[16].innerHTML.toUpperCase()
+     symbols[17].innerHTML = symbols[17].innerHTML.toUpperCase()
+     symbols[18].innerHTML = symbols[18].innerHTML.toUpperCase()
+     symbols[19].innerHTML = symbols[19].innerHTML.toUpperCase()
+  }
+  if (event.key == 'Shift' && localStorage.lang == 'ru' && capsLock == 1) { 
+     symbols[0].innerHTML = symbols[0].innerHTML.toLowerCase()
+     symbols[13].innerHTML = symbols[13].innerHTML.toLowerCase()
+     symbols[14].innerHTML = symbols[14].innerHTML.toLowerCase()
+     symbols[16].innerHTML = symbols[16].innerHTML.toLowerCase()
+     symbols[17].innerHTML = symbols[17].innerHTML.toLowerCase()
+     symbols[18].innerHTML = symbols[18].innerHTML.toLowerCase()
+     symbols[19].innerHTML = symbols[19].innerHTML.toLowerCase()
+  }
+})
+document.addEventListener('keyup', (event) => {
+  if (event.key == 'Shift' && localStorage.lang == 'ru' && capsLock == 0) { 
+     symbols[0].innerHTML = symbols[0].innerHTML.toLowerCase()
+     symbols[13].innerHTML = symbols[13].innerHTML.toLowerCase()
+     symbols[14].innerHTML = symbols[14].innerHTML.toLowerCase()
+     symbols[16].innerHTML = symbols[16].innerHTML.toLowerCase()
+     symbols[17].innerHTML = symbols[17].innerHTML.toLowerCase()
+     symbols[18].innerHTML = symbols[18].innerHTML.toLowerCase()
+     symbols[19].innerHTML = symbols[19].innerHTML.toLowerCase()
+  }
+  if (event.key == 'Shift' && localStorage.lang == 'ru' && capsLock == 1) { 
+     symbols[0].innerHTML = symbols[0].innerHTML.toUpperCase()
+     symbols[13].innerHTML = symbols[13].innerHTML.toUpperCase()
+     symbols[14].innerHTML = symbols[14].innerHTML.toUpperCase()
+     symbols[16].innerHTML = symbols[16].innerHTML.toUpperCase()
+     symbols[17].innerHTML = symbols[17].innerHTML.toUpperCase()
+     symbols[18].innerHTML = symbols[18].innerHTML.toUpperCase()
+     symbols[19].innerHTML = symbols[19].innerHTML.toUpperCase()
+  }
+})
+document.addEventListener('keydown', (event) => {
+  if (event.key == 'CapsLock' && localStorage.lang == 'ru') {
+     symbols[0].innerHTML = symbols[0].innerHTML.toUpperCase()
+     symbols[13].innerHTML = symbols[13].innerHTML.toUpperCase()
+     symbols[14].innerHTML = symbols[14].innerHTML.toUpperCase()
+     symbols[16].innerHTML = symbols[16].innerHTML.toUpperCase()
+     symbols[17].innerHTML = symbols[17].innerHTML.toUpperCase()
+     symbols[18].innerHTML = symbols[18].innerHTML.toUpperCase()
+     symbols[19].innerHTML = symbols[19].innerHTML.toUpperCase()
+  }
+})
+document.addEventListener('keyup', (event) => {
+  if (event.key == 'CapsLock' && localStorage.lang == 'ru') {
+    symbols[0].innerHTML = symbols[0].innerHTML.toLowerCase()
+    symbols[13].innerHTML = symbols[13].innerHTML.toLowerCase()
+    symbols[14].innerHTML = symbols[14].innerHTML.toLowerCase()
+    symbols[16].innerHTML = symbols[16].innerHTML.toLowerCase()
+    symbols[17].innerHTML = symbols[17].innerHTML.toLowerCase()
+    symbols[18].innerHTML = symbols[18].innerHTML.toLowerCase()
+    symbols[19].innerHTML = symbols[19].innerHTML.toLowerCase()
+  }
+});
+// ========================================================= special-buttons =================================================================
