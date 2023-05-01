@@ -17,10 +17,35 @@ sectionText.disabled = true;
 const keyboardWrapper = document.createElement('div');
 keyboardWrapper.classList.add('keyboard_wrapper');
 
+//description wrapper 
+const descriptionWrapper = document.createElement('div');
+descriptionWrapper.classList.add('description_wrapper');
+//description
+const desc = document.createElement('p');
+desc.classList.add('description');
+desc.innerText = `contol + option`;
+function langDesc () {
+   let description = document.querySelector('.description')
+   if (localStorage.lang === 'en') {
+      description.innerHTML = `Language change is made by combination "contol" + "option"`;
+      return description; 
+   } else { 
+      description.innerHTML = `Смена языка производится комбинацией "contol" + "option"`;
+      return description; 
+   }
+};
+//version
+const ver = document.createElement('p');
+ver.classList.add('ver');
+ver.innerText = `Mac OS`;
+
 //bild_block 
 section.append(sectionName);
 section.append(sectionText);  
 section.append(keyboardWrapper);
+section.append(descriptionWrapper);
+descriptionWrapper.append(desc);
+descriptionWrapper.append(ver);
 
 keyboardWrapper.innerHTML = `
 <div class="line">
@@ -37,10 +62,10 @@ keyboardWrapper.innerHTML = `
     <div class="key symb mark"      id="Digit0">0</div>
     <div class="key symb mark"      id="Minus">-</div>
     <div class="key symb mark"      id="Equal">=</div>
-    <div class="key delete"         id="Backspace">delete</div>
+    <div class="key delete"  id="Backspace">delete</div>
   </div>
   <div class="line">
-    <div class="key tab"            id="Tab">tab</div>
+    <div class="key tab"     id="Tab">tab</div>
     <div class="key symb lett lang" id="KeyQ">q</div>
     <div class="key symb lett lang" id="KeyW">w</div>
     <div class="key symb lett lang" id="KeyE">e</div>
@@ -57,8 +82,8 @@ keyboardWrapper.innerHTML = `
   </div>
   <div class="line">
     <div class = "box">
-    <div class="diode"></div>
-    <div class="key caps"           id="CapsLock"> caps lock</div>
+      <div class="diode"></div>
+      <div class="key caps"  id="CapsLock">caps lock</div>
     </div>
     <div class="key symb lett lang" id="KeyA">a</div>
     <div class="key symb lett lang" id="KeyS">s</div>
@@ -74,7 +99,7 @@ keyboardWrapper.innerHTML = `
     <div class="key return"         id="Enter">return</div>
   </div>
   <div class="line">
-    <div class="key l_shift"        id="ShiftLeft">shift</div>
+    <div class="key l_shift" id="ShiftLeft">shift</div>
     <div class="key symb lett lang" id="KeyZ">z</div>
     <div class="key symb lett lang" id="KeyX">x</div>
     <div class="key symb lett lang" id="KeyC">c</div>
@@ -109,17 +134,18 @@ const textArea = document.querySelector('.section_text');
 let capsLock = 0;
 const symbolsArrShift   = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', ':', '"', '<', '>', '?'];
 const symbolsArr        = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', '\'', '/', ',', '.'];
-const symbolsEn         = ['`', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '/', ',', '.'];
+const symbolsEn         = ['`', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.','/'];
 const symbolsRu         = ['ё', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.'];
 const dontTouchSymbols  = ['`', '[', ']', ';', '\'', ',', '/', 'ё', 'х', 'ъ', 'ж', 'э', 'б', 'ю'];
-const allKeyEn          = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'Shift', 'Ctrl','Alt','Com','','Com','Alt', '◀', '▲', '▼', '▶'];
-const allKeyRu          = ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\', 'CapsLock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'Enter', 'Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.', 'Shift', 'Ctrl','Alt','Com','','Com','Alt', '◀', '▲', '▼', '▶'];
+const allKeyEn          = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'delete', 'tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'caps lock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'return', 'shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'Shift', 'control','option','command','','command','option', '◀', '▲', '▼', '▶'];
+const allKeyRu          = ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'delete', 'tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\', 'caps lock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'return', 'shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.', 'Shift', 'control','option','command','','command','option', '◀', '▲', '▼', '▶'];
 
 const symbols       = document.querySelectorAll('.mark');
 const langSymbols   = document.querySelectorAll('.lang');
 const letters       = document.querySelectorAll('.lett');
 const toushSymbols  = document.querySelectorAll('.symb');
 // ========================================================= symbol =================================================================
+
 // ========================================================= active + =================================================================
 document.addEventListener('keydown', (event) => {
   keys.forEach(el => {
@@ -163,29 +189,31 @@ document.addEventListener('keydown', (event) => {
 })
 document.addEventListener('keyup', (event) => {
   if (event.key == 'Control') {
-     ctrlAcrive = 0
-     getLangTumbler()
+     ctrlAcrive = 0;
+     getLangTumbler();
   }
 })
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Alt') {
      alrActive = 1;
-     getLangTumbler()
-     getLangKeys()
+     getLangTumbler();
+     getLangKeys();
   }
 })
 document.addEventListener('keyup', (event) => {
   if (event.key === 'Alt') {
      alrActive = 0;
-     getLangTumbler()
+     getLangTumbler();
   }
 })
 function getLangTumbler() {
   if (alrActive === 1 && ctrlAcrive === 1) {
      if (localStorage.lang === 'en') {
-        localStorage.lang = 'ru'
+        localStorage.lang = 'ru';
+        langDesc();
      } else {
         localStorage.lang = 'en'
+        langDesc();
      }
   }
 }
@@ -200,7 +228,7 @@ function getLangKeys() {
         langSymbols[i].innerHTML = symbolsEn[i]
      }
   }
-}
+};
 // ========================================================= change-lang =================================================================
 // ========================================================= textarea-button =================================================================
 document.addEventListener('keydown', (event) => {
@@ -263,10 +291,10 @@ document.addEventListener('click', (event) => {
 // ========================================================= cursor =================================================================
 function getCursor() {
    return textArea.innerHTML = textArea.innerHTML.split('').map(el => {
-      if (el !== '|') {
+      if (el !== '❘') {
          return el
       }
-   }).join("") + "|";
+   }).join("") + "❘";
 }
 // ========================================================= cursor =================================================================
 // ========================================================= shift =================================================================

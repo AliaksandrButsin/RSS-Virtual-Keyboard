@@ -50,6 +50,7 @@
   align-items: end;
   /* flex-wrap: wrap; */
   gap: 10px;
+  position: relative;
 }
 .key {
   width: 40px;
@@ -76,10 +77,12 @@
 .delete, 
 .tab {
   width: 80px;
+  font-size: calc(1rem + -0.5vw);
 }
 .caps, 
 .return {
   width: 100px;
+  font-size: calc(1rem + -0.5vw);
 }
 .box{
   position: relative;
@@ -101,14 +104,19 @@
 .l_shift ,
 .r_shift {
   width: 120px;
+  font-size: calc(0.6rem);
 }
 .blind_box {
   display: flex;
   flex-direction: column;
 }
 #MetaLeft,
-#MetaRight {
+#MetaRight,
+#ControlLeft,
+#AltLeft,
+#AltRight {
   width: 60px;
+  font-size: calc(0.6rem);
 }
 #Space {
   width: 343px;
@@ -129,4 +137,15 @@
 
 }
 /* =============================== key-board =========================================================== */
+/* =============================== description =========================================================== */
+.description_wrapper {
+  width: 760px;
+  display: flex;
+  justify-content: space-between;
+}
+.description,
+.ver {
+  color: rgb(187, 187, 187);
+}
+/* =============================== description =========================================================== */
 
