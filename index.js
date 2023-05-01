@@ -98,18 +98,82 @@ keyboardWrapper.innerHTML = `
     </div>
     <div class="  key symb arrow r">▶</div>`;
 
-    const keys = document.querySelectorAll('.key');
-    const textArea = document.querySelector('.section_text');
-    let capsLock = 0;
-    const symbolsArrShift   = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', ':', '"', '<', '>', '?'];
-    const symbolsArr        = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', '\'', '/', ',', '.'];
-    const symbolsEng        = ['`', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '/', ',', '.'];
-    const symbolsRus        = ['ё', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.'];
-    const dontTouchSymbols  = ['`', '[', ']', ';', '\'', ',', '/', 'ё', 'х', 'ъ', 'ж', 'э', 'б', 'ю'];
-    const allKeyEn          = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'Shift', 'Ctrl','Alt','Com','','Com','Alt', '◀', '▲', '▼', '▶'];
-    const allKeyRus         = ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\', 'CapsLock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'Enter', 'Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.', 'Shift', 'Ctrl','Alt','Com','','Com','Alt', '◀', '▲', '▼', '▶'];
-    
-    const symbols       = document.querySelectorAll('.mark');
-    const langSymbols   = document.querySelectorAll('.lang');
-    const letters       = document.querySelectorAll('.lett');
-    const toushSymbols  = document.querySelectorAll('.symb');
+const keys = document.querySelectorAll('.key');
+const textArea = document.querySelector('.section_text');
+let capsLock = 0;
+const symbolsArrShift   = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', ':', '"', '<', '>', '?'];
+const symbolsArr        = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', '\'', '/', ',', '.'];
+const symbolsEn         = ['`', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '/', ',', '.'];
+const symbolsRu         = ['ё', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.'];
+const dontTouchSymbols  = ['`', '[', ']', ';', '\'', ',', '/', 'ё', 'х', 'ъ', 'ж', 'э', 'б', 'ю'];
+const allKeyEn          = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'Shift', 'Ctrl','Alt','Com','','Com','Alt', '◀', '▲', '▼', '▶'];
+const allKeyRu          = ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\', 'CapsLock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'Enter', 'Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.', 'Shift', 'Ctrl','Alt','Com','','Com','Alt', '◀', '▲', '▼', '▶'];
+
+const symbols       = document.querySelectorAll('.mark');
+const langSymbols   = document.querySelectorAll('.lang');
+const letters       = document.querySelectorAll('.lett');
+const toushSymbols  = document.querySelectorAll('.symb');
+
+const getStartedPage = () => {
+  if (localStorage.lang === 'undefined' || localStorage.lang === 'en') {
+      localStorage.lang = 'en'
+    for (let i = 0; i < keys.length; i++){
+        keys[i].innerHTML = allKeyEn[i]
+      }
+  } else {
+      for (let i = 0; i < keys.length; i++){
+        keys[i].innerHTML = allKeyRu[i]
+      }
+  }
+}
+getStartedPage()
+
+let ctrlAcrive = 0;
+let alrActive = 0;
+document.addEventListener('keydown', (event) => {
+  if (event.key == 'Control') {
+     ctrlAcrive = 1
+     getLangTumbler()
+     getLangKeys()
+  }
+})
+document.addEventListener('keyup', (event) => {
+  if (event.key == 'Control') {
+     ctrlAcrive = 0
+     getLangTumbler()
+  }
+})
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Alt') {
+     alrActive = 1;
+     getLangTumbler()
+     getLangKeys()
+  }
+})
+document.addEventListener('keyup', (event) => {
+  if (event.key === 'Alt') {
+     alrActive = 0;
+     getLangTumbler()
+  }
+})
+function getLangTumbler() {
+  if (alrActive === 1 && ctrlAcrive === 1) {
+     if (localStorage.lang === 'en') {
+        localStorage.lang = 'rus'
+     } else {
+        localStorage.lang = 'en'
+     }
+  }
+}
+function getLangKeys() {
+  if (localStorage.lang === 'rus') {
+     for (let i = 0; i < langSymbols.length; i++){
+        langSymbols[i].innerHTML = symbolsRu[i]
+     }
+  }
+  if (localStorage.lang === 'en') {
+     for (let i = 0; i < langSymbols.length; i++){
+        langSymbols[i].innerHTML = symbolsEn[i]
+     }
+  }
+}
