@@ -373,3 +373,53 @@ document.addEventListener('mouseup', (event) => {
   }
 })
 // ========================================================= shift =================================================================
+// ========================================================= caps lock =================================================================
+document.addEventListener('keydown', (event) => {
+  if (event.key == 'CapsLock') {
+    capsLock = 1;
+    activeDiode(capsLock);
+      letters.forEach(el => {
+        el.innerHTML = el.innerHTML.toUpperCase()
+     })
+  }
+})
+document.addEventListener('keyup', (event) => {
+  if (event.key == 'CapsLock') {
+    capsLock = 0;
+    activeDiode(capsLock);
+     letters.forEach(el => {
+        el.innerHTML = el.innerHTML.toLowerCase();
+     })
+  }
+})
+let kapsLockMouse = 0
+document.addEventListener('click', (event) => {
+  if (event.target.id == 'CapsLock' && kapsLockMouse === 0) {
+    capsLock = 1;
+    activeDiode(capsLock);
+    letters.forEach(el => {
+      el.innerHTML = el.innerHTML.toUpperCase()
+     })
+     event.target.classList.add('active')
+  }
+  if (event.target.id == 'CapsLock' && kapsLockMouse === 1) {
+    capsLock = 0;
+    activeDiode(capsLock);
+    letters.forEach(el => {
+      el.innerHTML = el.innerHTML.toLowerCase()
+     })
+     event.target.classList.remove('active')
+  }
+})
+document.addEventListener('click', (event) => {
+  if (event.target.id == 'CapsLock') {
+     kapsLockMouse === 0 ? kapsLockMouse = 1 : kapsLockMouse = 0;
+  }
+})
+// ========================================================= caps lock =================================================================
+// ========================================================= green-button =================================================================
+function activeDiode(capsLock) {
+  let diode = document.querySelector('.diode')
+  capsLock === 1 ? diode.classList.add('diode-active'): diode.classList.remove('diode-active')
+}
+// ========================================================= green-button =================================================================
